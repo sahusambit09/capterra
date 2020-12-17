@@ -24,7 +24,7 @@ class CapterraPipeline(object):
     def create_table(self):
         self.curr.execute("""DROP TABLE IF EXISTS api_capterra""")
         self.curr.execute(
-            """create table api_capterra(id integer PRIMARY KEY AUTO_INCREMENT,category text,site_id text,title text,rating text,image text,review text,feature text,price text,description text,created_date text)""")
+            """create table api_capterra(id integer PRIMARY KEY AUTO_INCREMENT,category text,site_id text,title text,rating text,image text,review text,feature text,price integer,description text,created_date text)""")
 
     def process_item(self, item, spider):
         self.store_db(item)

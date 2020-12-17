@@ -49,10 +49,11 @@ class CapCatSpider(scrapy.Spider):
         image = response.xpath("//*[@class='Thumbnail__Image-sc-1xvq2zk-0 idhssu']/@src").get()
         features = response.xpath("//*[@class='CheckIndicator__Children-sc-445q3w-1 bePeQr']/text()").get()
         try:
-            price = response.xpath("//*[@class='SpecRow__RowItem-sc-2l3qlv-4 gPGpNd']/span/text()").get().split('/')[0]
-        except AttributeError:
-            print("altered")
+            price = response.xpath("//*[@class='SpecRow__RowItem-sc-2l3qlv-4 gPGpNd']/span/text()").get().split('/')[0].split('$')[1]
+        except:
+
             price = response.xpath("//*[@class='SpecRow__RowItem-sc-2l3qlv-4 gPGpNd']/span/text()").get()
+            print("alteredaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
 
         description = response.xpath("//*[@class='Section__Body-w4hkcm-1 jhCJZs']/text()").get()
         created_date = str(date.today())
